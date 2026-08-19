@@ -118,6 +118,3 @@ The licensing approach may be updated as the EventHorizon project evolves.
 **Christos-Grigorios Gkovaris**  
 MEng Computer Science and Engineering Candidate  
 University of Ioannina  
-
-GitHub: [ChristosGkovaris](https://github.com/ChristosGkovaris)  
-LinkedIn: [christosgkovaris](https://www.linkedin.com/in/christosgkovaris)
