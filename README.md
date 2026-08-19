@@ -9,13 +9,10 @@ This repository contains the **interactive project showcase website for EventHor
 1. [Overview](#overview)
 2. [Purpose](#purpose)
 3. [Website Features](#website-features)
-4. [Project Status](#project-status)
-5. [EventHorizon](#eventhorizon)
-6. [Running the Website](#running-the-website)
-7. [Deployment](#deployment)
-8. [Related Links](#related-links)
-9. [License](#license)
-10. [Contact](#contact)
+4. [EventHorizon](#eventhorizon)
+5. [Related Links](#related-links)
+6. [License](#license)
+7. [Contact](#contact)
 
 ---
 
@@ -90,24 +87,6 @@ The website intentionally avoids presenting planned functionality as completed f
 
 ---
 
-## PROJECT STATUS
-
-**Status:** Active Development
-
-The showcase evolves alongside the main EventHorizon project.
-
-Current website content reflects the development state of EventHorizon and may be updated as new components are implemented.
-
-The website currently distinguishes between:
-
-- **Implemented**
-- **In Progress**
-- **Planned**
-
-This keeps the public presentation aligned with the actual state of the project.
-
----
-
 ## EVENTHORIZON
 
 EventHorizon is an open-source observability project focused on providing a structured way to query, filter, and analyze application service logs.
@@ -120,43 +99,9 @@ The main EventHorizon repository contains the actual project source code and dev
 
 ---
 
-## RUNNING THE WEBSITE
-
-The showcase is a static website built with HTML, CSS, and JavaScript.
-
-To run it locally:
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/ChristosGkovaris/EventHorizon-Showcase.git
-cd EventHorizon-Showcase
-```
-
-2. Open `index.html` directly in a browser or use a local development server such as the VS Code Live Server extension.
-
-No backend service is required for the showcase itself.
-
----
-
-## DEPLOYMENT
-
-The website is intended to be deployed using **GitHub Pages**.
-
-The deployed version serves as the public-facing showcase for EventHorizon and can be linked from:
-
-- LinkedIn
-- Personal portfolio
-- GitHub profile
-- CV / résumé
-- The main EventHorizon repository
-
----
-
 ## RELATED LINKS
 
 - **EventHorizon Repository:** [github.com/ChristosGkovaris/EventHorizon](https://github.com/ChristosGkovaris/EventHorizon)
-- **Personal Portfolio:** [christosgkovaris.github.io/Personal-Portfolio-Project](https://christosgkovaris.github.io/Personal-Portfolio-Project/)
 
 ---
 
