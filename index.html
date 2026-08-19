@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EventHorizon — Open-Source Observability Platform</title>
+
+    <meta
+        name="description"
+        content="EventHorizon is an open-source observability platform currently under active development."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="background-grid"></div>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-dot"></span>
+            EventHorizon
+        </a>
+
+        <div class="nav-links">
+            <a href="#demo">Demo</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#stack">Stack</a>
+        </div>
+
+        <a
+            href="#opensource"
+            class="nav-github"
+        >
+            GitHub
+        </a>
+    </nav>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section id="home" class="hero section">
+
+            <div class="hero-content">
+
+                <div class="status-badge">
+                    <span class="status-pulse"></span>
+                    ACTIVE DEVELOPMENT
+                </div>
+
+                <p class="hero-eyebrow">
+                    OPEN-SOURCE OBSERVABILITY PLATFORM
+                </p>
+
+                <h1>
+                    Observe the system.
+                    <span>Understand the signal.</span>
+                </h1>
+
+                <p class="hero-description">
+                    EventHorizon is an observability platform currently under
+                    development for querying, filtering, and analyzing
+                    application service logs through a modular backend architecture.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#demo" class="button primary-button">
+                        Explore Live Demo
+                    </a>
+
+                    <a href="#architecture" class="button secondary-button">
+                        View Architecture
+                    </a>
+                </div>
+
+                <div class="hero-status-grid">
+
+                    <div class="hero-status">
+                        <span class="status-label">PROJECT</span>
+                        <strong>EventHorizon</strong>
+                    </div>
+
+                    <div class="hero-status">
+                        <span class="status-label">STATUS</span>
+                        <strong>In Development</strong>
+                    </div>
+
+                    <div class="hero-status">
+                        <span class="status-label">CORE BACKEND</span>
+                        <strong>Python / Flask</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO VISUAL -->
+            <div class="hero-visual">
+
+                <div class="event-core">
+
+                    <div class="orbit orbit-one">
+                        <span class="orbit-node"></span>
+                    </div>
+
+                    <div class="orbit orbit-two">
+                        <span class="orbit-node"></span>
+                    </div>
+
+                    <div class="orbit orbit-three">
+                        <span class="orbit-node"></span>
+                    </div>
+
+                    <div class="core-center">
+                        <span>EH</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LIVE LOG DEMO -->
+        <section id="demo" class="section">
+
+            <div class="section-heading">
+                <span class="section-number">01</span>
+
+                <div>
+                    <p class="section-eyebrow">INTERACTIVE PREVIEW</p>
+                    <h2>Live Log Stream</h2>
+                    <p>
+                        Interactive simulated log stream demonstrating the
+                        intended EventHorizon workflow.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="demo-window">
+
+                <div class="window-header">
+
+                    <div class="window-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span>eventhorizon://logs</span>
+
+                    <div class="demo-indicator">
+                        <span></span>
+                        SIMULATED DEMO
+                    </div>
+
+                </div>
+
+
+                <div class="demo-toolbar">
+
+                    <div class="filter-group">
+                        <button class="filter-button active" data-filter="ALL">
+                            ALL
+                        </button>
+
+                        <button class="filter-button" data-filter="INFO">
+                            INFO
+                        </button>
+
+                        <button class="filter-button" data-filter="WARNING">
+                            WARNING
+                        </button>
+
+                        <button class="filter-button" data-filter="ERROR">
+                            ERROR
+                        </button>
+                    </div>
+
+
+                    <div class="search-wrapper">
+                        <input
+                            id="log-search"
+                            type="text"
+                            placeholder="Search logs..."
+                        >
+                    </div>
+
+
+                    <button id="clear-logs" class="clear-button">
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <div class="log-stats">
+
+                    <div>
+                        <span>Total</span>
+                        <strong id="total-count">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Info</span>
+                        <strong id="info-count">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Warnings</span>
+                        <strong id="warning-count">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Errors</span>
+                        <strong id="error-count">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div id="log-container" class="log-container">
+                    <!-- Logs generated dynamically by JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHY EVENTHORIZON -->
+        <section class="section">
+
+            <div class="section-heading">
+                <span class="section-number">02</span>
+
+                <div>
+                    <p class="section-eyebrow">THE PROJECT</p>
+                    <h2>Why EventHorizon?</h2>
+                </div>
+            </div>
+
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+                    <span class="feature-index">01</span>
+                    <h3>Centralized Visibility</h3>
+                    <p>
+                        Explore application logs from a single structured interface.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-index">02</span>
+                    <h3>Fast Filtering</h3>
+                    <p>
+                        Narrow log results by severity and other service information.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-index">03</span>
+                    <h3>Modular Design</h3>
+                    <p>
+                        Build the platform incrementally through clearly separated components.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CURRENT CAPABILITIES -->
+        <section id="capabilities" class="section">
+
+            <div class="section-heading">
+                <span class="section-number">03</span>
+
+                <div>
+                    <p class="section-eyebrow">CURRENT IMPLEMENTATION</p>
+                    <h2>Backend Foundation</h2>
+                </div>
+            </div>
+
+
+            <div class="capability-grid">
+
+                <article class="capability-card implemented">
+                    <span class="capability-status">IMPLEMENTED</span>
+                    <h3>Flask Backend</h3>
+                    <p>Python backend application built with Flask.</p>
+                </article>
+
+                <article class="capability-card implemented">
+                    <span class="capability-status">IMPLEMENTED</span>
+                    <h3>Flask Blueprints</h3>
+                    <p>Modular organization of backend routes.</p>
+                </article>
+
+                <article class="capability-card implemented">
+                    <span class="capability-status">IMPLEMENTED</span>
+                    <h3>Health Endpoint</h3>
+                    <p>API endpoint for checking service health.</p>
+                </article>
+
+                <article class="capability-card implemented">
+                    <span class="capability-status">IMPLEMENTED</span>
+                    <h3>Log Retrieval</h3>
+                    <p>Backend endpoint for retrieving application logs.</p>
+                </article>
+
+                <article class="capability-card implemented">
+                    <span class="capability-status">IMPLEMENTED</span>
+                    <h3>Severity Filtering</h3>
+                    <p>Filtering log results based on severity.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ARCHITECTURE -->
+        <section id="architecture" class="section">
+
+            <div class="section-heading">
+                <span class="section-number">04</span>
+
+                <div>
+                    <p class="section-eyebrow">SYSTEM DESIGN</p>
+                    <h2>Architecture</h2>
+                    <p>Follow the planned flow of observability data.</p>
+                </div>
+            </div>
+
+
+            <div class="architecture-wrapper">
+
+                <div class="architecture-node planned-node">
+                    <span class="node-status planned">PLANNED</span>
+                    <span class="node-number">01</span>
+                    <h3>Log Generator</h3>
+                    <p>Produces simulated application logs.</p>
+                </div>
+
+                <div class="architecture-connection">
+                    <span></span>
+                </div>
+
+                <div class="architecture-node implemented-node">
+                    <span class="node-status implemented">IMPLEMENTED</span>
+                    <span class="node-number">02</span>
+                    <h3>Flask API</h3>
+                    <p>Processes log requests and filtering.</p>
+                </div>
+
+                <div class="architecture-connection">
+                    <span></span>
+                </div>
+
+                <div class="architecture-node planned-node">
+                    <span class="node-status planned">PLANNED</span>
+                    <span class="node-number">03</span>
+                    <h3>Storage & Search</h3>
+                    <p>Persistent storage and indexed search.</p>
+                </div>
+
+                <div class="architecture-connection">
+                    <span></span>
+                </div>
+
+                <div class="architecture-node planned-node">
+                    <span class="node-status planned">PLANNED</span>
+                    <span class="node-number">04</span>
+                    <h3>Frontend</h3>
+                    <p>Interactive observability interface.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ROADMAP -->
+        <section id="roadmap" class="section">
+
+            <div class="section-heading">
+                <span class="section-number">05</span>
+
+                <div>
+                    <p class="section-eyebrow">DEVELOPMENT</p>
+                    <h2>Roadmap</h2>
+                </div>
+            </div>
+
+
+            <div class="roadmap">
+
+                <div class="roadmap-line"></div>
+
+                <article class="roadmap-item current">
+                    <span class="roadmap-marker"></span>
+                    <span class="roadmap-status">IN PROGRESS</span>
+                    <h3>Backend Foundation</h3>
+                    <p>Flask API, Blueprints, health checks, and log filtering.</p>
+                </article>
+
+                <article class="roadmap-item">
+                    <span class="roadmap-marker"></span>
+                    <span class="roadmap-status">PLANNED</span>
+                    <h3>Persistence Layer</h3>
+                    <p>Database-backed log storage.</p>
+                </article>
+
+                <article class="roadmap-item">
+                    <span class="roadmap-marker"></span>
+                    <span class="roadmap-status">PLANNED</span>
+                    <h3>Search Integration</h3>
+                    <p>Indexed log search and analysis.</p>
+                </article>
+
+                <article class="roadmap-item">
+                    <span class="roadmap-marker"></span>
+                    <span class="roadmap-status">PLANNED</span>
+                    <h3>Observability UI</h3>
+                    <p>Interactive frontend dashboard.</p>
+                </article>
+
+                <article class="roadmap-item">
+                    <span class="roadmap-marker"></span>
+                    <span class="roadmap-status">PLANNED</span>
+                    <h3>Infrastructure</h3>
+                    <p>Containerization, automated workflows, and deployment.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- TECH STACK -->
+        <section id="stack" class="section">
+
+            <div class="section-heading">
+                <span class="section-number">06</span>
+
+                <div>
+                    <p class="section-eyebrow">TECHNOLOGY</p>
+                    <h2>Technology Stack</h2>
+                </div>
+            </div>
+
+
+            <div class="stack-columns">
+
+                <div class="stack-column">
+                    <span class="stack-label implemented-label">
+                        CURRENTLY USED
+                    </span>
+
+                    <div class="stack-list">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>REST APIs</span>
+                        <span>Git</span>
+                    </div>
+                </div>
+
+
+                <div class="stack-column">
+                    <span class="stack-label planned-label">
+                        PLANNED
+                    </span>
+
+                    <div class="stack-list">
+                        <span>Database Integration</span>
+                        <span>Search Engine</span>
+                        <span>Frontend</span>
+                        <span>Docker</span>
+                        <span>CI/CD</span>
+                        <span>Deployment</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OPEN SOURCE -->
+        <section id="opensource" class="section open-source-section">
+
+            <div class="open-source-content">
+
+                <p class="section-eyebrow">OPEN SOURCE</p>
+
+                <h2>
+                    Built in the open.
+                </h2>
+
+                <p>
+                    EventHorizon is being developed as an open-source software
+                    engineering project. Development is ongoing and the project
+                    will evolve incrementally as new components are implemented.
+                </p>
+
+                <a
+                    href="https://github.com/ChristosGkovaris/EventHorizon"
+                    class="button primary-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Project on GitHub
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div>
+            <strong>EventHorizon</strong>
+            <p>Open-Source Observability Platform</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">GitHub</a>
+            <a href="#">Portfolio</a>
+            <a href="#">LinkedIn</a>
+        </div>
+
+        <p>
+            Built by Christos-Grigorios Gkovaris
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
