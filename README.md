@@ -1,6 +1,6 @@
 # EVENTHORIZON SHOWCASE
 
-This repository contains the **interactive project showcase website for EventHorizon**, an open-source observability platform currently under active development. The website presents the project vision, current implementation status, planned direction, and an interactive simulated log experience in a clear and accessible format.
+This repository contains the **interactive project showcase website for EventHorizon**, an open-source observability platform under active development. The website presents the project vision, implementation progress, architectural direction, and an interactive simulated log experience in a visual and accessible format.
 
 ---
 
@@ -22,11 +22,11 @@ The EventHorizon Showcase is a dedicated website created to present the developm
 
 Rather than acting as the main source-code repository, this website focuses on communicating:
 
-- What EventHorizon is
-- What has already been implemented
-- What is currently under development
-- What is planned for future versions
-- How the platform is expected to evolve over time
+* What EventHorizon is
+* What has already been implemented
+* What is currently under development
+* What is planned for future versions
+* How the platform is expected to evolve over time
 
 The site is designed as a public-facing project overview for developers, recruiters, potential contributors, and anyone interested in following the project.
 
@@ -38,11 +38,11 @@ The showcase serves as the public entry point to the EventHorizon project.
 
 Its main goals are to:
 
-- Present the project in a concise and professional format
-- Make the development roadmap easy to understand
-- Clearly separate implemented functionality from planned work
-- Provide an interactive preview of the intended observability experience
-- Direct visitors to the main EventHorizon source-code repository
+* Present the project in a concise and professional format
+* Make the development roadmap easy to understand
+* Clearly separate implemented functionality from work still in development
+* Provide an interactive preview of the intended observability experience
+* Direct visitors to the main EventHorizon source-code repository
 
 The website intentionally avoids presenting planned functionality as completed functionality.
 
@@ -50,50 +50,66 @@ The website intentionally avoids presenting planned functionality as completed f
 
 ## WEBSITE FEATURES
 
-- **Interactive Hero Section**
-  - Animated EventHorizon visual
-  - Active-development status
-  - Direct navigation to the main project sections
+* **Interactive Hero Section**
 
-- **Simulated Live Log Stream**
-  - Dynamically generated application logs
-  - INFO, WARNING, and ERROR severity levels
-  - Severity filtering
-  - Search functionality
-  - Live counters and log clearing
-  - Clearly identified as a simulated demonstration
+  * Animated EventHorizon visual
+  * Active-development status
+  * Direct navigation to the main project sections
 
-- **Current Capabilities**
-  - Overview of functionality already implemented in EventHorizon
-  - Clear implementation-status indicators
+* **Simulated Live Log Stream**
 
-- **Interactive Architecture View**
-  - Visual representation of the intended system flow
-  - Implemented and planned components shown separately
+  * Dynamically generated application logs
+  * INFO, WARNING, and ERROR severity levels
+  * Severity filtering
+  * Search functionality
+  * Live counters and log clearing
+  * Clearly identified as a simulated demonstration
 
-- **Development Roadmap**
-  - Current development stage
-  - Planned project milestones
-  - Visual progression of the platform
+* **Current Capabilities**
 
-- **Technology Overview**
-  - Technologies currently used
-  - Technologies planned for later development stages
+  * Overview of functionality already implemented in EventHorizon
+  * Clear implementation-status indicators
 
-- **Responsive Design**
-  - Desktop and mobile-friendly layout
-  - Interactive animations and transitions
-  - Dark observability-inspired interface
+* **Interactive Architecture View**
+
+  * Visual representation of the intended system flow
+  * Implemented, in-development, and planned components shown separately
+
+* **Development Roadmap**
+
+  * Current development stage
+  * Planned project milestones
+  * Visual progression of the platform
+
+* **Technology Overview**
+
+  * Technologies currently used
+  * Technologies planned for later development stages
+
+* **Responsive Design**
+
+  * Desktop and mobile-friendly layout
+  * Interactive animations and transitions
+  * Dark observability-inspired interface
 
 ---
 
 ## EVENTHORIZON
 
-EventHorizon is an open-source observability project focused on providing a structured way to query, filter, and analyze application service logs.
+EventHorizon is an open-source observability project focused on generating, collecting, querying, filtering, and analyzing application service logs.
 
-The current development stage includes a **Python / Flask backend**, modular route organization, health checking, log retrieval, and severity-based filtering.
+The current implemented backend foundation includes a **Python / Flask API**, modular route organization, health monitoring, log retrieval, severity-based filtering, and service-layer separation.
 
-Future development is expected to expand the platform with persistent storage, search capabilities, a dedicated frontend, and supporting infrastructure.
+The project also now includes the foundation of a standalone **C++ log generator** component, intended to simulate realistic application workloads and produce structured logs for the EventHorizon platform.
+
+Future development is expected to expand the platform with:
+
+* PostgreSQL persistence
+* OpenSearch indexing and search
+* A dedicated React frontend
+* Docker-based local infrastructure
+* CI/CD workflows
+* OpenShift deployment support
 
 The main EventHorizon repository contains the actual project source code and development history.
 
@@ -101,7 +117,7 @@ The main EventHorizon repository contains the actual project source code and dev
 
 ## RELATED LINKS
 
-- **EventHorizon Repository:** [github.com/ChristosGkovaris/EventHorizon](https://github.com/ChristosGkovaris/EventHorizon)
+* **EventHorizon Repository:** [github.com/ChristosGkovaris/EventHorizon-Observatory-Platform](https://github.com/ChristosGkovaris/EventHorizon-Observatory-Platform)
 
 ---
 
@@ -115,6 +131,6 @@ The licensing approach may be updated as the EventHorizon project evolves.
 
 ## CONTACT
 
-**Christos-Grigorios Gkovaris**  
-MEng Computer Science and Engineering Candidate  
-University of Ioannina  
+**Christos-Grigorios Gkovaris**
+Computer Science and Engineering
+University of Ioannina

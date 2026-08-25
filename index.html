@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="EventHorizon is an open-source observability platform currently under active development."
+        content="EventHorizon is an open-source observability platform combining a Flask backend with a native C++ log-generation component."
     >
 
     <link rel="stylesheet" href="style.css">
@@ -67,9 +67,10 @@
                 </h1>
 
                 <p class="hero-description">
-                    EventHorizon is an observability platform currently under
-                    development for querying, filtering, and analyzing
-                    application service logs through a modular backend architecture.
+                    EventHorizon is an open-source observability platform under
+                    development for generating, querying, filtering, and analyzing
+                    application service logs through a modular architecture built
+                    around Python, Flask, and C++.
                 </p>
 
                 <div class="hero-actions">
@@ -350,11 +351,11 @@
 
             <div class="architecture-wrapper">
 
-                <div class="architecture-node planned-node">
-                    <span class="node-status planned">PLANNED</span>
+                <div class="architecture-node development-node">
+                    <span class="node-status development">IN DEVELOPMENT</span>
                     <span class="node-number">01</span>
-                    <h3>Log Generator</h3>
-                    <p>Produces simulated application logs.</p>
+                    <h3>C++ Log Generator</h3>
+                    <p>Native component for simulated application workloads and log generation.</p>
                 </div>
 
                 <div class="architecture-connection">
@@ -412,11 +413,18 @@
 
                 <div class="roadmap-line"></div>
 
+                <article class="roadmap-item">
+                    <span class="roadmap-marker"></span>
+                    <span class="roadmap-status">IMPLEMENTED</span>
+                    <h3>Backend Foundation</h3>
+                    <p>Flask API, Blueprints, health checks, service separation, and log filtering.</p>
+                </article>
+
                 <article class="roadmap-item current">
                     <span class="roadmap-marker"></span>
                     <span class="roadmap-status">IN PROGRESS</span>
-                    <h3>Backend Foundation</h3>
-                    <p>Flask API, Blueprints, health checks, and log filtering.</p>
+                    <h3>C++ Log Generator</h3>
+                    <p>Native log simulation, workload generation, and backend integration.</p>
                 </article>
 
                 <article class="roadmap-item">
@@ -475,6 +483,8 @@
                     <div class="stack-list">
                         <span>Python</span>
                         <span>Flask</span>
+                        <span>C++</span>
+                        <span>CMake</span>
                         <span>REST APIs</span>
                         <span>Git</span>
                     </div>
@@ -487,12 +497,12 @@
                     </span>
 
                     <div class="stack-list">
-                        <span>Database Integration</span>
-                        <span>Search Engine</span>
-                        <span>Frontend</span>
+                        <span>PostgreSQL</span>
+                        <span>OpenSearch</span>
+                        <span>React / TypeScript</span>
                         <span>Docker</span>
-                        <span>CI/CD</span>
-                        <span>Deployment</span>
+                        <span>GitHub Actions</span>
+                        <span>OpenShift</span>
                     </div>
                 </div>
 
@@ -514,12 +524,13 @@
 
                 <p>
                     EventHorizon is being developed as an open-source software
-                    engineering project. Development is ongoing and the project
-                    will evolve incrementally as new components are implemented.
+                    engineering project combining a Python/Flask backend, native
+                    C++ simulation components, and a planned modern observability stack.
+                    Development continues incrementally as each system component is implemented.
                 </p>
 
                 <a
-                    href="https://github.com/ChristosGkovaris/EventHorizon"
+                    href="https://github.com/ChristosGkovaris/EventHorizon-Observatory-Platform"
                     class="button primary-button"
                     target="_blank"
                     rel="noopener noreferrer"
