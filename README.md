@@ -115,17 +115,15 @@ The main EventHorizon repository contains the actual project source code and dev
 
 ---
 
-## RELATED LINKS
-
-* **EventHorizon Repository:** [github.com/ChristosGkovaris/EventHorizon-Observatory-Platform](https://github.com/ChristosGkovaris/EventHorizon-Observatory-Platform)
-
----
-
 ## LICENSE
 
-No formal software license is currently specified for this showcase repository.
+Copyright © 2026 Christos-Grigorios Gkovaris. All rights reserved.
 
-The licensing approach may be updated as the EventHorizon project evolves.
+The EventHorizon Showcase website and its original content are proprietary and are not offered under an open-source license. Unauthorized copying, modification, or redistribution is prohibited, except where permitted by applicable law.
+
+The EventHorizon Observatory Platform is developed separately. Licensing terms for distributed versions of the application and access to hosted services will be provided through the applicable End User License Agreement (EULA) or Terms of Service.
+
+Third-party components and assets remain subject to their respective licenses.
 
 ---
 
