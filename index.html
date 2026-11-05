@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EventHorizon — Open-Source Observability Platform</title>
+    <title>EventHorizon — Observability Platform in Development</title>
 
     <meta
         name="description"
-        content="EventHorizon is an open-source observability platform combining a Flask backend with a native C++ log-generation component."
+        content="Explore EventHorizon: a Flask log API with an OpenSearch storage adapter, automated tests, and a roadmap for C++ simulation, search, and cloud staging."
     >
 
     <link rel="stylesheet" href="style.css">
@@ -58,7 +58,7 @@
                 </div>
 
                 <p class="hero-eyebrow">
-                    OPEN-SOURCE OBSERVABILITY PLATFORM
+                    OBSERVABILITY & INCIDENT INVESTIGATION
                 </p>
 
                 <h1>
@@ -67,15 +67,12 @@
                 </h1>
 
                 <p class="hero-description">
-                    EventHorizon is an open-source observability platform under
-                    development for generating, querying, filtering, and analyzing
-                    application service logs through a modular architecture built
-                    around Python, Flask, and C++.
+                    EventHorizon is an observability platform in development. Its Flask API validates and stores log events through an OpenSearch adapter. The next steps build toward reliable search, C++ workload simulation, and incident investigation.
                 </p>
 
                 <div class="hero-actions">
                     <a href="#demo" class="button primary-button">
-                        Explore Live Demo
+                        Explore Simulated Demo
                     </a>
 
                     <a href="#architecture" class="button secondary-button">
@@ -141,10 +138,9 @@
 
                 <div>
                     <p class="section-eyebrow">INTERACTIVE PREVIEW</p>
-                    <h2>Live Log Stream</h2>
+                    <h2>Simulated Log Stream</h2>
                     <p>
-                        Interactive simulated log stream demonstrating the
-                        intended EventHorizon workflow.
+                        Browser-generated sample events preview the intended workflow. Search and timestamps here are demo features; this page does not connect to the backend.
                     </p>
                 </div>
             </div>
@@ -195,11 +191,13 @@
                         <input
                             id="log-search"
                             type="text"
-                            placeholder="Search logs..."
+                            placeholder="Search sample logs..."
+                            aria-label="Search simulated logs"
                         >
                     </div>
 
 
+                    <button id="pause-logs" class="clear-button" aria-pressed="false">Pause stream</button>
                     <button id="clear-logs" class="clear-button">
                         Clear
                     </button>
@@ -210,7 +208,7 @@
                 <div class="log-stats">
 
                     <div>
-                        <span>Total</span>
+                        <span>Buffered (max 50)</span>
                         <strong id="total-count">0</strong>
                     </div>
 
@@ -233,7 +231,7 @@
 
 
                 <div id="log-container" class="log-container">
-                    <!-- Logs generated dynamically by JavaScript -->
+                    <noscript>Enable JavaScript to explore the simulated log stream. Project details remain available below.</noscript>
                 </div>
 
             </div>
@@ -260,7 +258,7 @@
                     <span class="feature-index">01</span>
                     <h3>Centralized Visibility</h3>
                     <p>
-                        Explore application logs from a single structured interface.
+                        A shared log format and ingestion API establish the foundation for centralized investigation.
                     </p>
                 </article>
 
@@ -268,7 +266,7 @@
                     <span class="feature-index">02</span>
                     <h3>Fast Filtering</h3>
                     <p>
-                        Narrow log results by severity and other service information.
+                        Filter by severity today; service, time-range, and full-text queries are planned.
                     </p>
                 </article>
 
@@ -293,43 +291,21 @@
 
                 <div>
                     <p class="section-eyebrow">CURRENT IMPLEMENTATION</p>
-                    <h2>Backend Foundation</h2>
+                    <h2>What Works Today</h2>
+                    <p>Implementation status reflects the source code. Live infrastructure and production readiness are separate milestones.</p>
                 </div>
             </div>
 
 
             <div class="capability-grid">
-
-                <article class="capability-card implemented">
-                    <span class="capability-status">IMPLEMENTED</span>
-                    <h3>Flask Backend</h3>
-                    <p>Python backend application built with Flask.</p>
-                </article>
-
-                <article class="capability-card implemented">
-                    <span class="capability-status">IMPLEMENTED</span>
-                    <h3>Flask Blueprints</h3>
-                    <p>Modular organization of backend routes.</p>
-                </article>
-
-                <article class="capability-card implemented">
-                    <span class="capability-status">IMPLEMENTED</span>
-                    <h3>Health Endpoint</h3>
-                    <p>API endpoint for checking service health.</p>
-                </article>
-
-                <article class="capability-card implemented">
-                    <span class="capability-status">IMPLEMENTED</span>
-                    <h3>Log Retrieval</h3>
-                    <p>Backend endpoint for retrieving application logs.</p>
-                </article>
-
-                <article class="capability-card implemented">
-                    <span class="capability-status">IMPLEMENTED</span>
-                    <h3>Severity Filtering</h3>
-                    <p>Filtering log results based on severity.</p>
-                </article>
-
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>Flask Application Factory</h3><p>Blueprint routes and injectable storage keep the API modular and testable.</p></article>
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>Validated Log Ingestion</h3><p>POST /api/logs accepts service, severity, and message fields. Invalid requests return HTTP 400; created events return HTTP 201.</p></article>
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>Retrieval & Severity Filters</h3><p>GET /api/logs retrieves indexed results, with optional INFO, WARNING, or ERROR filtering. Pagination is planned.</p></article>
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>Event IDs & Conflict Handling</h3><p>The API generates or preserves event_id values. Duplicate IDs return HTTP 409 without overwriting the stored event.</p></article>
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>OpenSearch Storage Adapter</h3><p>Indexing and retrieval are implemented behind LogStorage. Connection failures become storage exceptions; reliability work continues.</p></article>
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>Automated Backend Tests</h3><p>Pytest tests use injected fake storage and mocked OpenSearch clients to cover API behavior, validation, and storage operations.</p></article>
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>API Liveness Endpoint</h3><p>GET /api/health returns the API status. A storage-aware readiness check remains planned.</p></article>
+<article class="capability-card implemented"><span class="capability-status">IMPLEMENTED</span><h3>Local OpenSearch Configuration</h3><p>Docker Compose defines a single-node OpenSearch service with a named data volume. Restart persistence still needs integration verification.</p></article>
             </div>
 
         </section>
@@ -344,7 +320,7 @@
                 <div>
                     <p class="section-eyebrow">SYSTEM DESIGN</p>
                     <h2>Architecture</h2>
-                    <p>Follow the planned flow of observability data.</p>
+                    <p>Current path: client → Flask routes → LogStorage → OpenSearch. The generator and React interface extend this path in later stages.</p>
                 </div>
             </div>
 
@@ -352,10 +328,10 @@
             <div class="architecture-wrapper">
 
                 <div class="architecture-node development-node">
-                    <span class="node-status development">IN DEVELOPMENT</span>
+                    <span class="node-status development">SCAFFOLD ONLY</span>
                     <span class="node-number">01</span>
                     <h3>C++ Log Generator</h3>
-                    <p>Native component for simulated application workloads and log generation.</p>
+                    <p>Project files exist; the log model, runtime generation, HTTP sender, and CMake build remain to be implemented.</p>
                 </div>
 
                 <div class="architecture-connection">
@@ -366,18 +342,18 @@
                     <span class="node-status implemented">IMPLEMENTED</span>
                     <span class="node-number">02</span>
                     <h3>Flask API</h3>
-                    <p>Processes log requests and filtering.</p>
+                    <p>Validates log events, assigns event IDs, handles conflicts, and delegates retrieval to storage.</p>
                 </div>
 
                 <div class="architecture-connection">
                     <span></span>
                 </div>
 
-                <div class="architecture-node planned-node">
-                    <span class="node-status planned">PLANNED</span>
+                <div class="architecture-node development-node">
+                    <span class="node-status development">PARTIALLY IMPLEMENTED</span>
                     <span class="node-number">03</span>
-                    <h3>Storage & Search</h3>
-                    <p>Persistent storage and indexed search.</p>
+                    <h3>OpenSearch</h3>
+                    <p>Storage adapter implemented. Explicit mappings, readiness checks, and real-service verification are next.</p>
                 </div>
 
                 <div class="architecture-connection">
@@ -387,8 +363,8 @@
                 <div class="architecture-node planned-node">
                     <span class="node-status planned">PLANNED</span>
                     <span class="node-number">04</span>
-                    <h3>Frontend</h3>
-                    <p>Interactive observability interface.</p>
+                    <h3>React Frontend</h3>
+                    <p>Planned API-connected log explorer and incident investigation interface. This showcase is a separate simulation.</p>
                 </div>
 
             </div>
@@ -404,57 +380,19 @@
 
                 <div>
                     <p class="section-eyebrow">DEVELOPMENT</p>
-                    <h2>Roadmap</h2>
+                    <h2>From Local Reliability to Cloud Staging</h2>
+                    <p>Milestones describe remaining work, not release dates or completion percentages.</p>
                 </div>
             </div>
 
 
-            <div class="roadmap">
-
-                <div class="roadmap-line"></div>
-
-                <article class="roadmap-item">
-                    <span class="roadmap-marker"></span>
-                    <span class="roadmap-status">IMPLEMENTED</span>
-                    <h3>Backend Foundation</h3>
-                    <p>Flask API, Blueprints, health checks, service separation, and log filtering.</p>
-                </article>
-
-                <article class="roadmap-item current">
-                    <span class="roadmap-marker"></span>
-                    <span class="roadmap-status">IN PROGRESS</span>
-                    <h3>C++ Log Generator</h3>
-                    <p>Native log simulation, workload generation, and backend integration.</p>
-                </article>
-
-                <article class="roadmap-item">
-                    <span class="roadmap-marker"></span>
-                    <span class="roadmap-status">PLANNED</span>
-                    <h3>Persistence Layer</h3>
-                    <p>Database-backed log storage.</p>
-                </article>
-
-                <article class="roadmap-item">
-                    <span class="roadmap-marker"></span>
-                    <span class="roadmap-status">PLANNED</span>
-                    <h3>Search Integration</h3>
-                    <p>Indexed log search and analysis.</p>
-                </article>
-
-                <article class="roadmap-item">
-                    <span class="roadmap-marker"></span>
-                    <span class="roadmap-status">PLANNED</span>
-                    <h3>Observability UI</h3>
-                    <p>Interactive frontend dashboard.</p>
-                </article>
-
-                <article class="roadmap-item">
-                    <span class="roadmap-marker"></span>
-                    <span class="roadmap-status">PLANNED</span>
-                    <h3>Infrastructure</h3>
-                    <p>Containerization, automated workflows, and deployment.</p>
-                </article>
-
+            <div class="roadmap"><div class="roadmap-line"></div>
+<article class="roadmap-item complete"><span class="roadmap-marker"></span><span class="roadmap-status">IMPLEMENTED</span><h3>Backend & Storage Foundation</h3><p>Validated ingestion, event IDs, severity queries, OpenSearch adapter, fake/mocked tests, and local Compose configuration.</p></article>
+<article class="roadmap-item current"><span class="roadmap-marker"></span><span class="roadmap-status">NEXT · RELIABILITY</span><h3>Complete Local OpenSearch</h3><p>Consistent JSON 503 responses, explicit index mappings, timestamps, storage readiness, and real-service tests including restart persistence.</p></article>
+<article class="roadmap-item "><span class="roadmap-marker"></span><span class="roadmap-status">PLANNED</span><h3>Search & Investigation</h3><p>Service and time-range filters, full-text search, deterministic sorting, pagination, and a React log explorer.</p></article>
+<article class="roadmap-item "><span class="roadmap-marker"></span><span class="roadmap-status">SCAFFOLD → IMPLEMENTATION</span><h3>C++ Workload Simulation</h3><p>Structured events, configurable services and generation rates, HTTP transmission, concurrency, and integration/load tests.</p></article>
+<article class="roadmap-item "><span class="roadmap-marker"></span><span class="roadmap-status">PROPOSED · AFTER LOCAL VALIDATION</span><h3>Private AWS Staging</h3><p>Package the backend, define secure configuration and budget controls, then validate private staging. AWS service selection remains open.</p></article>
+<article class="roadmap-item "><span class="roadmap-marker"></span><span class="roadmap-status">LONGER TERM</span><h3>Platform & Delivery</h3><p>PostgreSQL for relational metadata, authentication, CI/CD, retention and operational hardening. OpenShift remains a deployment option.</p></article>
             </div>
 
         </section>
@@ -483,8 +421,9 @@
                     <div class="stack-list">
                         <span>Python</span>
                         <span>Flask</span>
-                        <span>C++</span>
-                        <span>CMake</span>
+                        <span>OpenSearch adapter</span>
+                        <span>pytest</span>
+                        <span>Docker Compose (local config)</span>
                         <span>REST APIs</span>
                         <span>Git</span>
                     </div>
@@ -498,9 +437,10 @@
 
                     <div class="stack-list">
                         <span>PostgreSQL</span>
-                        <span>OpenSearch</span>
+                        <span>C++ / CMake implementation</span>
                         <span>React / TypeScript</span>
-                        <span>Docker</span>
+                        <span>Full-stack containers</span>
+                        <span>AWS staging (proposed)</span>
                         <span>GitHub Actions</span>
                         <span>OpenShift</span>
                     </div>
@@ -516,17 +456,14 @@
 
             <div class="open-source-content">
 
-                <p class="section-eyebrow">OPEN SOURCE</p>
+                <p class="section-eyebrow">FOLLOW THE PROJECT</p>
 
                 <h2>
-                    Built in the open.
+                    Follow the next milestone.
                 </h2>
 
                 <p>
-                    EventHorizon is being developed as an open-source software
-                    engineering project combining a Python/Flask backend, native
-                    C++ simulation components, and a planned modern observability stack.
-                    Development continues incrementally as each system component is implemented.
+                    Explore the EventHorizon showcase repository and follow the project as its Flask and OpenSearch foundation grows toward native simulation, richer search, and cloud deployment.
                 </p>
 
                 <a
@@ -535,7 +472,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    View Project on GitHub
+                    View Showcase on GitHub
                 </a>
 
             </div>
@@ -550,7 +487,7 @@
 
         <div>
             <strong>EventHorizon</strong>
-            <p>Open-Source Observability Platform</p>
+            <p>Observability Platform in Development</p>
         </div>
 
         <div class="footer-links">

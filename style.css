@@ -1850,3 +1850,32 @@ footer > p:last-child {
     }
 
 }
+/* Updated implementation status and accessible demo controls. */
+.demo-toolbar { grid-template-columns: auto minmax(160px, 1fr) auto auto; }
+.roadmap { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.roadmap-line { display: none; }
+.roadmap-item { padding: 28px 24px 24px; border: 1px solid var(--border); border-radius: var(--radius-medium); background: var(--surface); }
+.roadmap-marker { top: 29px; left: 20px; }
+.roadmap-status { padding-left: 24px; min-height: 28px; }
+.roadmap-item.complete .roadmap-marker { background: var(--green); outline-color: var(--green); }
+.roadmap-item.complete .roadmap-status { color: #86efac; }
+.roadmap-item.current { border-color: rgba(96, 165, 250, 0.4); }
+.capability-status { margin-bottom: 24px; }
+.architecture-node { min-width: 0; }
+.node-status { letter-spacing: 0.04em; }
+.log-message { overflow-wrap: anywhere; min-width: 0; }
+.log-time { color: #94a3b8; }
+.section-heading p, .capability-card p, .roadmap-item p, .architecture-node p { color: #94a3b8; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+button[aria-pressed="true"] { border-color: var(--blue); }
+noscript { display: block; padding: 24px; color: var(--text-soft); }
+@media (max-width: 1100px) { .roadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 850px) {
+    .demo-toolbar, .roadmap { grid-template-columns: 1fr; }
+    .roadmap-marker { top: 29px; left: 20px; }
+    .log-entry { grid-template-columns: 72px 78px minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+}

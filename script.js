@@ -67,6 +67,13 @@ const logTemplates = [
    ========================================================= */
 
 let logs = [];
+let streamTimer = null;
+let streamPaused = false;
+let demoSequence = 0;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+function demoEventId() {
+    return globalThis.crypto?.randomUUID?.() ?? `demo-${Date.now()}-${++demoSequence}`;
+}
 
 let currentFilter = "ALL";
 
@@ -128,7 +135,7 @@ function generateLog() {
         ];
 
     const log = {
-        id: crypto.randomUUID(),
+        event_id: demoEventId(),
         time: getCurrentTime(),
         service: template.service,
         severity: template.severity,
@@ -217,7 +224,7 @@ function renderLogs() {
         emptyState.style.fontSize = "0.8rem";
 
         emptyState.textContent =
-            "No logs match the current filters.";
+            logs.length ? "No sample logs match the current filters." : "The sample buffer is empty. Resume the stream or wait for the next event.";
 
         logContainer.appendChild(emptyState);
 
@@ -265,12 +272,11 @@ filterButtons.forEach(button => {
 
             filterButtons.forEach(
                 currentButton =>
-                    currentButton.classList.remove(
-                        "active"
-                    )
+                    (currentButton.classList.remove("active"), currentButton.setAttribute("aria-pressed", "false"))
             );
 
             button.classList.add("active");
+            button.setAttribute("aria-pressed", "true");
 
             currentFilter =
                 button.dataset.filter;
@@ -351,7 +357,7 @@ function initializeLogs() {
         (log, index) => {
 
             logs.push({
-                id: crypto.randomUUID(),
+                event_id: demoEventId(),
                 time: getCurrentTime(),
                 service: log.service,
                 severity: log.severity,
@@ -373,18 +379,22 @@ function initializeLogs() {
    ========================================================= */
 
 function startLogStream() {
-
-    setInterval(
-        () => {
-
-            generateLog();
-
-        },
-        2200
-    );
-
+    clearInterval(streamTimer);
+    streamTimer = null;
+    if (!streamPaused && !document.hidden) {
+        streamTimer = setInterval(generateLog, 2200);
+    }
 }
 
+const pauseButton = document.getElementById("pause-logs");
+pauseButton.addEventListener("click", () => {
+    streamPaused = !streamPaused;
+    pauseButton.textContent = streamPaused ? "Resume stream" : "Pause stream";
+    pauseButton.setAttribute("aria-pressed", String(streamPaused));
+    startLogStream();
+});
+document.addEventListener("visibilitychange", startLogStream);
+filterButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === currentFilter)));
 
 /* =========================================================
    SCROLL REVEAL
@@ -521,7 +531,7 @@ const eventCore =
     document.querySelector(".event-core");
 
 
-if (eventCore) {
+if (eventCore && !reducedMotion.matches) {
 
     const hero =
         document.querySelector(".hero");
@@ -591,6 +601,7 @@ const interactiveCards =
 
 
 interactiveCards.forEach(card => {
+    if (reducedMotion.matches) return;
 
     card.addEventListener(
         "mousemove",
@@ -784,6 +795,7 @@ const buttons =
 
 
 buttons.forEach(button => {
+    if (reducedMotion.matches) return;
 
     button.addEventListener(
         "mousemove",
